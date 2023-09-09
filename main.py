@@ -31,7 +31,7 @@ if file:
     # write classification
     percentage = confidence_score * 100
 
-    if percentage > 95.0:
+    if percentage > 90.0:
 
         if class_name == "Glioma":
             st.write(f"### С вероятностью в {percentage:.2f}% мозг на снимке поражен глиомой")
