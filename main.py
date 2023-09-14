@@ -26,25 +26,16 @@ if file:
     st.image(image, use_column_width=True)
 
     # classify image
-    class_name, confidence_score = classify(image=image, model=model, class_names=class_names)
+    class_name = classify(image=image, model=model, class_names=class_names)
 
-    # write classification
-    percentage = confidence_score * 100
-
-    if percentage > 90.0:
-
-        if class_name == "Glioma":
-            st.write(f"### С вероятностью в {percentage:.2f}% мозг на снимке поражен глиомой")
-        elif class_name == "Meningioma":
-            st.write(f"### С вероятностью в {percentage:.2f}% мозг на снимке поражен менингиомой")
-        elif class_name == "Healthy":
-            st.write(f"### С вероятностью в {percentage:.2f}% мозг на снимке не имеет никаких злокачественных опухолей")
-        else:
-            st.write(f"### С вероятностью в {percentage:.2f}% мозг на снимке поражен опухолью гипофиза")
-
+    if class_name == "Glioma":
+        st.write(f"### С вероятностью в {percentage:.2f}% мозг на снимке поражен глиомой")
+    elif class_name == "Meningioma":
+        st.write(f"### С вероятностью в {percentage:.2f}% мозг на снимке поражен менингиомой")
+    elif class_name == "Healthy":
+        st.write(f"### С вероятностью в {percentage:.2f}% мозг на снимке не имеет никаких злокачественных опухолей")
     else:
-        st.write("### По данному снимку невозможно определить наличие опухоли либо изображение не содержит снимок МРТ")
-        st.write("### Так же советуем удостовериться в качестве снимка")
+        st.write(f"### С вероятностью в {percentage:.2f}% мозг на снимке поражен опухолью гипофиза")
 
 st.write("Модель классификации использует данные со следующих источников:")
 st.write("https://figshare.com/articles/dataset/brain_tumor_dataset/1512427")
