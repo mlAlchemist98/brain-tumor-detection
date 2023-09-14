@@ -29,13 +29,13 @@ if file:
     class_name = classify(image=image, model=model, class_names=class_names)
 
     if class_name == "Glioma":
-        st.write(f"### С вероятностью в {percentage:.2f}% мозг на снимке поражен глиомой")
+        st.write(f"### Согласно модели классификации, мозг на снимке поражен глиомой")
     elif class_name == "Meningioma":
-        st.write(f"### С вероятностью в {percentage:.2f}% мозг на снимке поражен менингиомой")
+        st.write(f"### Согласно модели классификации, мозг на снимке поражен менингиомой")
     elif class_name == "Healthy":
-        st.write(f"### С вероятностью в {percentage:.2f}% мозг на снимке не имеет никаких злокачественных опухолей")
+        st.write(f"### Согласно модели классификации, мозг на снимке не имеет никаких злокачественных опухолей")
     else:
-        st.write(f"### С вероятностью в {percentage:.2f}% мозг на снимке поражен опухолью гипофиза")
+        st.write(f"### Согласно модели классификации, мозг на снимке поражен опухолью гипофиза")
 
 st.write("Модель классификации использует данные со следующих источников:")
 st.write("https://figshare.com/articles/dataset/brain_tumor_dataset/1512427")
